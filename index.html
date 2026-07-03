@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>OUR ALUMNI</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,700;9..40,900&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --paper:#f6f4ef;
+    --paper-soft:#efece4;
+    --graphite:#2a2a2c;
+    --graphite-soft:#6d6c68;
+    --brass:#a9814b;
+    --brass-soft:#c7a06a;
+    --hairline:#dcd7cc;
+    --font-display:'DM Sans', sans-serif;
+    --font-mono:'DM Mono', monospace;
+  }
+
+  *{ box-sizing:border-box; }
+
+  body{
+    margin:0;
+    min-height:100vh;
+    background:var(--paper);
+    color:var(--graphite);
+    font-family:var(--font-display);
+    position:relative;
+    overflow-x:hidden;
+  }
+
+  .symbol{
+    position:absolute;
+    color:var(--graphite);
+    opacity:0.05;
+    pointer-events:none;
+    animation:drift linear infinite;
+    font-family:var(--font-mono);
+  }
+
+  @keyframes drift{
+    from{ transform:translateY(-10vh) rotate(0deg); }
+    to{ transform:translateY(120vh) rotate(360deg); }
+  }
+
+  .container{
+    position:relative;
+    z-index:1;
+    max-width:760px;
+    margin:0 auto;
+    padding:80px 28px 120px;
+  }
+
+  header{
+    text-align:center;
+    margin-bottom:64px;
+  }
+
+  .eyebrow{
+    font-family:var(--font-mono);
+    font-size:0.72rem;
+    letter-spacing:0.35em;
+    text-transform:uppercase;
+    color:var(--brass);
+    margin-bottom:18px;
+  }
+
+  h1{
+    font-size:clamp(2.2rem, 6vw, 3.4rem);
+    font-weight:900;
+    letter-spacing:-0.02em;
+    margin:0 0 14px;
+  }
+
+  .subtitle{
+    font-family:var(--font-mono);
+    font-size:0.85rem;
+    color:var(--graphite-soft);
+    letter-spacing:0.08em;
+  }
+
+  .batch{
+    margin-bottom:56px;
+  }
+
+  .batch-head{
+    display:flex;
+    align-items:baseline;
+    justify-content:space-between;
+    border-bottom:1px solid var(--graphite);
+    padding-bottom:14px;
+    margin-bottom:6px;
+  }
+
+  .batch-title{
+    font-size:1.3rem;
+    font-weight:700;
+    letter-spacing:-0.01em;
+  }
+
+  .batch-count{
+    font-family:var(--font-mono);
+    font-size:0.78rem;
+    color:var(--graphite-soft);
+  }
+
+  ul.rank-list{
+    list-style:none;
+    margin:0;
+    padding:0;
+  }
+
+  .rank-list li{
+    display:flex;
+    align-items:center;
+    gap:18px;
+    padding:16px 4px;
+    border-bottom:1px solid var(--hairline);
+    opacity:0;
+    animation:reveal 0.5s ease forwards;
+    animation-delay:calc(var(--i) * 0.05s);
+  }
+
+  .rank-list li:last-child{
+    border-bottom:none;
+  }
+
+  @keyframes reveal{
+    from{ opacity:0; transform:translateY(8px); }
+    to{ opacity:1; transform:translateY(0); }
+  }
+
+  .idx{
+    font-family:var(--font-mono);
+    font-size:0.85rem;
+    color:var(--brass-soft);
+    min-width:26px;
+    flex-shrink:0;
+  }
+
+  .name{
+    flex:1;
+    font-weight:500;
+    font-size:1.02rem;
+    letter-spacing:-0.005em;
+  }
+
+  .inst{
+    font-family:var(--font-mono);
+    font-size:0.7rem;
+    letter-spacing:0.05em;
+    text-transform:uppercase;
+    color:var(--graphite);
+    background:var(--paper-soft);
+    border:1px solid var(--hairline);
+    padding:5px 10px;
+    border-radius:2px;
+    white-space:nowrap;
+  }
+
+  .batch.new .inst{
+    border-color:var(--brass-soft);
+    color:var(--brass);
+    background:rgba(169,129,75,0.08);
+  }
+
+  footer{
+    text-align:center;
+    margin-top:80px;
+    font-family:var(--font-mono);
+    font-size:0.7rem;
+    letter-spacing:0.15em;
+    text-transform:uppercase;
+    color:var(--graphite-soft);
+  }
+
+  @media (max-width:480px){
+    .container{ padding:56px 18px 90px; }
+    .inst{ font-size:0.62rem; padding:4px 8px; }
+    .name{ font-size:0.92rem; }
+  }
+</style>
+</head>
+<body>
+
+  <script>
+    const symbols = ["∑", "π", "μ", "σ", "√", "∫", "∂", "∞", "Δ", "λ"];
+    for (let i = 0; i < 50; i++) {
+      const el = document.createElement("div");
+      el.className = "symbol";
+      el.innerText = symbols[Math.floor(Math.random() * symbols.length)];
+      el.style.left = Math.random() * 100 + "vw";
+      el.style.top = Math.random() * -100 + "vh";
+      el.style.animationDuration = `${20 + Math.random() * 30}s`;
+      el.style.fontSize = `${1.4 + Math.random() * 2}rem`;
+      el.style.animationDelay = `${Math.random() * 10}s`;
+      document.body.appendChild(el);
+    }
+  </script>
+
+  <div class="container">
+    <header>
+      <div class="eyebrow">Zz Academy · Alumni Registry</div>
+      <h1>OUR ALUMNI</h1>
+      <div class="subtitle">Selections across GATE cycles</div>
+    </header>
+
+    <section class="batch">
+      <div class="batch-head">
+        <div class="batch-title">GATE 2025</div>
+        <div class="batch-count">12 selections</div>
+      </div>
+      <ul class="rank-list">
+        <li style="--i:1"><span class="idx">01</span><span class="name">Jaydeep</span><span class="inst">IIT Madras</span></li>
+        <li style="--i:2"><span class="idx">02</span><span class="name">Spider</span><span class="inst">IIT Jodhpur</span></li>
+        <li style="--i:3"><span class="idx">03</span><span class="name">Ducky</span><span class="inst">IIT Jodhpur</span></li>
+        <li style="--i:4"><span class="idx">04</span><span class="name">Anat / Aham / Rahul / A</span><span class="inst">IIT Madras</span></li>
+        <li style="--i:5"><span class="idx">05</span><span class="name">Arrrow</span><span class="inst">IIT Tirupati</span></li>
+        <li style="--i:6"><span class="idx">06</span><span class="name">Chinmay</span><span class="inst">IIT Palakkad</span></li>
+        <li style="--i:7"><span class="idx">07</span><span class="name">Chalrenoob</span><span class="inst">IIT Hyderabad</span></li>
+        <li style="--i:8"><span class="idx">08</span><span class="name">Nagendra</span><span class="inst">IIT Kharagpur</span></li>
+        <li style="--i:9"><span class="idx">09</span><span class="name">Priyadip</span><span class="inst">IIT Jodhpur</span></li>
+        <li style="--i:10"><span class="idx">10</span><span class="name">Ryuk</span><span class="inst">IIT Madras</span></li>
+        <li style="--i:11"><span class="idx">11</span><span class="name">Jerry</span><span class="inst">IIIT Bangalore</span></li>
+        <li style="--i:12"><span class="idx">12</span><span class="name">Phoenix Striker</span><span class="inst">IIIT Hyderabad</span></li>
+      </ul>
+    </section>
+
+    <section class="batch new">
+      <div class="batch-head">
+        <div class="batch-title">GATE 2026</div>
+        <div class="batch-count">5 selections</div>
+      </div>
+      <ul class="rank-list">
+        <li style="--i:1"><span class="idx">01</span><span class="name">Dnm</span><span class="inst">IIT Madras</span></li>
+        <li style="--i:2"><span class="idx">02</span><span class="name">Mrinal</span><span class="inst">IIT Madras</span></li>
+        <li style="--i:3"><span class="idx">03</span><span class="name">Alexandre</span><span class="inst">IISc</span></li>
+        <li style="--i:4"><span class="idx">04</span><span class="name">Yash Chopra</span><span class="inst">IIT Bombay</span></li>
+        <li style="--i:5"><span class="idx">05</span><span class="name">Car</span><span class="inst">IIT Tirupati</span></li>
+      </ul>
+    </section>
+
+    <footer>Updated · GATE 2026 batch added</footer>
+  </div>
+
+</body>
+</html>
